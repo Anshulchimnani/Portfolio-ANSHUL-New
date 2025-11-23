@@ -1,0 +1,3 @@
+# Core dependencies for the plugin system
+pyyaml>=6.0
+typing-extensions>=4.0.0
