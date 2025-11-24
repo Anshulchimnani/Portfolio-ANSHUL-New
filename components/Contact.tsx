@@ -43,7 +43,7 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-500 mx-auto mb-4"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            I'm always open to discussing new projects, opportunities, or collaborations.
+            I&apos;m always open to discussing new projects, opportunities, or collaborations.
             Feel free to reach out!
           </p>
         </motion.div>
@@ -93,10 +93,10 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center glass-effect rounded-lg p-12"
         >
-          <h3 className="text-3xl font-bold mb-4">Let's Work Together</h3>
+          <h3 className="text-3xl font-bold mb-4">Let&apos;s Work Together</h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Whether you're looking for data analysis expertise, machine learning solutions,
-            or ISO 27001 compliance support, I'd love to hear about your project.
+            Whether you&apos;re looking for data analysis expertise, machine learning solutions,
+            or ISO 27001 compliance support, I&apos;d love to hear about your project.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

@@ -66,7 +66,7 @@ const About = () => {
               helping organizations maintain compliance while maximizing data utility.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed">
-              When I'm not analyzing data, you'll find me exploring new destinations through trekking
+              When I&apos;m not analyzing data, you&apos;ll find me exploring new destinations through trekking
               or enjoying the art of film.
             </p>
           </motion.div>

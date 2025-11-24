@@ -13,7 +13,6 @@ import {
   SiDocker,
   SiGit,
   SiTableau,
-  SiPowerbi,
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -42,7 +41,6 @@ const Skills = () => {
       title: 'Visualization & BI',
       skills: [
         { name: 'Tableau', icon: <SiTableau className="w-8 h-8" />, color: '#E97627' },
-        { name: 'Power BI', icon: <SiPowerbi className="w-8 h-8" />, color: '#F2C811' },
       ],
     },
   ];
