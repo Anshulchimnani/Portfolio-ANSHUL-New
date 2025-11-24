@@ -1,182 +1,231 @@
 # Anshul Chimnani - Portfolio Website
 
-A modern, responsive portfolio website showcasing expertise in Data Analysis, Machine Learning, Data Engineering, and ISO 27001 compliance.
+A minimal, clean portfolio website inspired by [hirok.io](https://hirok.io/), built with Next.js 14, TypeScript, and Tailwind CSS. This portfolio showcases data science and machine learning projects with a focus on professional presentation and enterprise security credentials.
 
-**Live Site:** [www.anshul.clepto.io](https://www.anshul.clepto.io)
+## 🚀 Features
 
-## About
+- **Minimal Design**: Clean, content-first design with lots of whitespace
+- **Dark Mode**: Seamless light/dark theme switching with persistence
+- **GitHub Integration**: Automatically fetches and displays projects from GitHub
+- **Responsive**: Mobile-first design that works on all devices
+- **SEO Optimized**: Comprehensive metadata and structured data
+- **Fast Performance**: Built with Next.js 14 App Router and ISR caching
 
-This portfolio website presents the professional journey and technical expertise of Anshul Chimnani, a Data Analyst based in Dublin, Ireland. The site features a clean, modern design with smooth animations and a focus on user experience.
+## 📋 Prerequisites
 
-## Features
+- Node.js 18+ and npm
+- A GitHub account (for project showcase)
+- Your professional photo (for hero section)
+- Your CV in PDF format
 
-- **Modern Design**: Beautiful gradient effects, glass morphism, and smooth animations
-- **Fully Responsive**: Optimized for all devices from mobile to desktop
-- **Performance Optimized**: Built with Next.js 14 for optimal loading speeds
-- **SEO Ready**: Comprehensive metadata and Open Graph tags
-- **Accessibility**: WCAG compliant with proper ARIA labels and semantic HTML
-- **Dark Theme**: Professional dark theme with vibrant accent colors
+## 🛠️ Installation
 
-## Sections
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd Portfolio-ANSHUL-New
+   ```
 
-1. **Hero Section**: Eye-catching introduction with animated background
-2. **About**: Professional bio and career highlights
-3. **Skills**: Comprehensive showcase of technical skills and tools
-4. **Projects**: Featured data science and machine learning projects
-5. **ISO 27001**: Expertise in information security management systems
-6. **Contact**: Multiple ways to connect and collaborate
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Tech Stack
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: React Icons
-- **Deployment**: Vercel
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Getting Started
+## 📝 Updating Content
 
-### Prerequisites
+All editable content is centralized in `/lib/data.ts` for easy maintenance. Here's what you can update:
 
-- Node.js 18.x or higher
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/cleptoio/ANSHUL-REPO-REPO.git
-cd ANSHUL-REPO-REPO
+### Personal Information
+```typescript
+export const personalInfo = {
+  name: "Your Name",
+  location: "Your City, Country",
+  email: "your-email@example.com",
+  // ... update other fields
+};
 ```
 
-2. Install dependencies:
-```bash
-npm install
+### Featured Projects
+To change which projects appear on the homepage:
+```typescript
+export const featuredProjects = [
+  "repo-name-1",
+  "repo-name-2",
+  // Add or remove repo names from your GitHub
+];
 ```
 
-3. Run the development server:
-```bash
-npm run dev
+### Impact Metrics
+Update your key numbers:
+```typescript
+export const impactMetrics = {
+  metrics: [
+    { value: "500K+", label: "Your achievement" },
+    // ... update with your real metrics
+  ],
+};
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+### Skills and Expertise
+Modify the expertise section:
+```typescript
+export const expertise = [
+  {
+    icon: "📊",
+    title: "Your Skill",
+    description: "Technologies you use",
+  },
+  // ... add or modify skills
+];
+```
 
-## Development
+## 🖼️ Adding Your Photo and CV
 
-### Available Scripts
+### Profile Photo
+1. Add your professional photo to `/public/profile.jpg`
+2. Recommended size: 500x500px or larger (square)
+3. Format: JPG or PNG
 
-- `npm run dev` - Start development server
-- `npm run build` - Create production build
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
+### CV PDF
+1. Add your CV to `/public/cv.pdf`
+2. The download button on the CV page will automatically link to this file
 
-### Project Structure
+## 🚀 Deployment to Vercel
+
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+2. **Deploy to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js and configure everything
+   - Click "Deploy"
+
+3. **Optional: Add GitHub Token**
+   - In Vercel dashboard, go to Settings → Environment Variables
+   - Add `GITHUB_TOKEN` with your GitHub personal access token
+   - This increases API rate limits from 60 to 5000 requests/hour
+   - Create token at: https://github.com/settings/tokens (only needs `public_repo` scope)
+
+## 📁 Project Structure
 
 ```
+Portfolio-ANSHUL-New/
 ├── app/
-│   ├── layout.tsx       # Root layout with metadata
-│   ├── page.tsx         # Homepage
-│   └── globals.css      # Global styles
+│   ├── api/projects/route.ts    # API route for GitHub projects
+│   ├── cv/page.tsx               # CV page
+│   ├── projects/page.tsx         # All projects page
+│   ├── layout.tsx                # Root layout with theme provider
+│   ├── page.tsx                  # Homepage
+│   └── globals.css               # Global styles
 ├── components/
-│   ├── Navigation.tsx   # Header navigation
-│   ├── Hero.tsx         # Hero section
-│   ├── About.tsx        # About/bio section
-│   ├── Skills.tsx       # Skills showcase
-│   ├── Projects.tsx     # Projects gallery
-│   ├── ISO27001.tsx     # ISO expertise section
-│   └── Contact.tsx      # Contact section
-├── public/              # Static assets
-└── package.json         # Dependencies
+│   ├── Header.tsx                # Navigation header
+│   ├── Hero.tsx                  # Hero section
+│   ├── ImpactMetrics.tsx         # Metrics display
+│   ├── FeaturedProjects.tsx      # Featured projects grid
+│   ├── ProjectCard.tsx           # Reusable project card
+│   ├── Expertise.tsx             # Skills section
+│   ├── ISO27001.tsx              # Security credentials
+│   ├── WorkExperience.tsx        # Work history
+│   ├── Consulting.tsx            # Services offered
+│   ├── Contact.tsx               # Contact section
+│   ├── Footer.tsx                # Footer
+│   └── ThemeToggle.tsx           # Dark mode toggle
+├── lib/
+│   ├── data.ts                   # All editable content (UPDATE THIS!)
+│   ├── github.ts                 # GitHub API functions
+│   └── types.ts                  # TypeScript interfaces
+├── public/
+│   ├── profile.jpg               # Your photo (ADD THIS!)
+│   └── cv.pdf                    # Your CV (ADD THIS!)
+└── package.json
 ```
 
-## Deployment to Vercel
+## 🎨 Customization
 
-### Quick Deploy
-
-1. Push your code to GitHub
-2. Import your repository in [Vercel](https://vercel.com)
-3. Vercel will automatically detect Next.js and configure the build
-4. Click "Deploy"
-
-### Custom Domain Setup
-
-1. Go to your Vercel project settings
-2. Navigate to "Domains"
-3. Add `www.anshul.clepto.io`
-4. Follow Vercel's instructions to configure DNS records
-
-### Environment Variables (if needed)
-
-Create a `.env.local` file for local development:
-```env
-NEXT_PUBLIC_SITE_URL=https://www.anshul.clepto.io
+### Colors
+Edit `tailwind.config.ts` to change the color scheme:
+```typescript
+colors: {
+  accent: "#3b82f6",  // Change accent color
+  // ... other colors
+}
 ```
 
-## Customization
+### Fonts
+The site uses Inter font by default. To change it, edit `app/layout.tsx`:
+```typescript
+import { YourFont } from "next/font/google";
+```
 
-### Update Personal Information
+## 🔧 Troubleshooting
 
-Edit the following files to customize with your information:
+### Projects not loading
+- Check your internet connection
+- Verify GitHub username in `/lib/github.ts` is correct
+- Check browser console for API errors
+- GitHub API has rate limits (60/hour without token)
 
-- `app/layout.tsx` - Update metadata and SEO information
-- `components/Hero.tsx` - Update name and introduction
-- `components/About.tsx` - Update bio and professional highlights
-- `components/Skills.tsx` - Update skills and expertise areas
-- `components/Projects.tsx` - Update projects list
-- `components/Contact.tsx` - Update contact information
+### Dark mode not working
+- Clear browser cache and localStorage
+- Check if JavaScript is enabled
+- Try in incognito mode
 
-### Styling
+### Build errors
+```bash
+# Clear Next.js cache
+rm -rf .next
 
-- Colors and theme: `tailwind.config.ts`
-- Global styles: `app/globals.css`
-- Component-specific styles: Use Tailwind classes in components
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
 
-## Performance
+# Try building again
+npm run build
+```
 
-- Lighthouse Score: 95+ across all metrics
-- Optimized images and lazy loading
-- Minimal JavaScript bundle size
-- Server-side rendering for faster initial load
+## 📊 Performance
 
-## Browser Support
+The site is optimized for performance:
+- **ISR Caching**: GitHub data cached for 1 hour
+- **Image Optimization**: Next.js Image component
+- **Font Optimization**: next/font for zero layout shift
+- **Minimal JavaScript**: Only essential client-side code
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+Target Lighthouse scores: 95+ on all metrics
 
-## License
+## 🤝 Support
 
-This project is open source and available under the MIT License.
+If you need help:
+1. Check this README first
+2. Look at `/lib/data.ts` for content updates
+3. Check the browser console for errors
+4. Review the implementation plan in the project
 
-## Contact
+## 📄 License
 
-**Anshul Chimnani**
-- LinkedIn: [Anshul Chimnani](https://www.linkedin.com/in/anshul-chimnani-2b8384134/)
-- GitHub: [Anshulchimnani](https://github.com/Anshulchimnani)
-- Location: Dublin, Ireland
+This project is open source and available for personal use.
+
+## 🙏 Credits
+
+- Design inspired by [hirok.io](https://hirok.io/)
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Lucide](https://lucide.dev/)
 
 ---
 
-## A Code Repository's Poem
-
-In digital halls where logic flows,
-A repository silently grows,
-Lines of code like verses true,
-Crafted carefully, tried and new.
-
-Commits like chapters, stories told,
-Of bugs resolved and features bold,
-Branches diverge and merge again,
-Collaboration's endless chain.
-
-Through pull requests and review's keen eye,
-Quality standards held up high,
-In README's welcoming embrace,
-We document this coding space.
-
-So here we gather, build, and share,
-A testament to creators' care,
-Where innovation finds its home,
-In ANSHUL's repository poem.
+**Built with ❤️ by Anshul Chimnani**

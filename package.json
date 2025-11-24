@@ -12,7 +12,8 @@
     "next": "^14.2.18",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "framer-motion": "^11.3.28",
+    "next-themes": "^0.2.1",
+    "lucide-react": "^0.294.0",
     "react-icons": "^5.2.1"
   },
   "devDependencies": {

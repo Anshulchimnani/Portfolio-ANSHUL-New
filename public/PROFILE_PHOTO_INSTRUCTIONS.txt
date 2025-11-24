@@ -1,0 +1,17 @@
+# PLACEHOLDER: Add your professional photo here
+
+This file should be replaced with your professional photo.
+
+**Requirements:**
+- Filename: `profile.jpg` (or `profile.png`)
+- Recommended size: 500x500px or larger (square aspect ratio)
+- Format: JPG or PNG
+- Should be a professional headshot with good lighting
+
+**How to add:**
+1. Prepare your professional photo
+2. Resize it to at least 500x500px (square)
+3. Save it as `profile.jpg` or `profile.png`
+4. Replace this file in the `/public` folder
+
+The photo will appear in the hero section of your homepage.
