@@ -7,12 +7,16 @@ export default function Hero() {
   return (
     <section className="pt-32 pb-20 px-6">
       <div className="max-w-container mx-auto text-center">
-        {/* Profile Photo - Using a simple div placeholder until user adds their photo */}
+        {/* Profile Photo */}
         <div className="mb-8 flex justify-center">
-          <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-gray-200 dark:border-gray-800 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-            <span className="text-4xl text-gray-400 dark:text-gray-600">
-              {personalInfo.name.charAt(0)}
-            </span>
+          <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-gray-200 dark:border-gray-800">
+            <Image
+              src="/profile.jpg"
+              alt={personalInfo.name}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
 
