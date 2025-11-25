@@ -1,41 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useState } from "react";
+import Map, { MapRef } from "react-map-gl/maplibre";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 // Dublin coordinates
-const DUBLIN_COORDS: [number, number] = [53.3498, -6.2603];
-
-function MapController() {
-    const map = useMap();
-
-    useEffect(() => {
-        // Initial view: Zoomed out
-        map.setView(DUBLIN_COORDS, 3, { animate: false });
-
-        // Animation: Zoom in to Dublin
-        const timer = setTimeout(() => {
-            map.flyTo(DUBLIN_COORDS, 12, {
-                duration: 4, // 4 seconds duration
-                easeLinearity: 0.25,
-            });
-        }, 1000); // Start after 1 second
-
-        return () => clearTimeout(timer);
-    }, [map]);
-
-    return null;
-}
+const DUBLIN_COORDS = {
+    longitude: -6.2603,
+    latitude: 53.3498,
+};
 
 export default function MapBackground() {
-    const [mounted, setMounted] = useState(false);
+    const mapRef = useRef<MapRef>(null);
+    const [viewState, setViewState] = useState({
+        longitude: DUBLIN_COORDS.longitude,
+        latitude: DUBLIN_COORDS.latitude,
+        zoom: 3, // Start zoomed out
+    });
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        // Animation: Zoom in to Dublin after mount
+        const timer = setTimeout(() => {
+            mapRef.current?.flyTo({
+                center: [DUBLIN_COORDS.longitude, DUBLIN_COORDS.latitude],
+                zoom: 13,
+                duration: 6000, // 6 seconds duration
+                essential: true,
+            });
+        }, 1000);
 
-    if (!mounted) return null;
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div className="w-full h-full relative opacity-60">
@@ -43,22 +38,21 @@ export default function MapBackground() {
             <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-l from-transparent via-transparent to-[#0B1026]" />
             <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-[#0B1026] via-transparent to-[#0B1026]" />
 
-            <MapContainer
-                center={DUBLIN_COORDS}
-                zoom={3}
-                scrollWheelZoom={false}
-                zoomControl={false}
-                dragging={false}
-                doubleClickZoom={false}
+            <Map
+                ref={mapRef}
+                {...viewState}
+                onMove={evt => setViewState(evt.viewState)}
+                style={{ width: "100%", height: "100%" }}
+                // Dark Matter style from Carto (free, no API key needed for basic usage)
+                mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
                 attributionControl={false}
-                className="w-full h-full grayscale invert contrast-125 brightness-75" // Dark mode map style
-                style={{ background: "#0B1026" }}
-            >
-                <TileLayer
-                    url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                />
-                <MapController />
-            </MapContainer>
+                scrollZoom={false}
+                dragPan={false}
+                dragRotate={false}
+                doubleClickZoom={false}
+                touchZoomRotate={false}
+                keyboard={false}
+            />
         </div>
     );
 }
