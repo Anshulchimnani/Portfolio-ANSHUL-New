@@ -49,7 +49,7 @@ export default function NeuralNetworkBackground() {
                 vx: (Math.random() - 0.5) * 0.3,
                 vy: (Math.random() - 0.5) * 0.3,
                 radius: Math.random() * 2 + 1,
-                color: Math.random() > 0.5 ? "#3b82f6" : "#1a1a1a", // Blue or Matte Black
+                color: Math.random() > 0.5 ? "#22d3ee" : "#00f2fe", // Cyan-400 or Cyan Glow
             });
         }
 
@@ -91,7 +91,10 @@ export default function NeuralNetworkBackground() {
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = particle.color;
                 ctx.fill();
+                ctx.shadowBlur = 0;
 
                 // Draw connections
                 particles.slice(i + 1).forEach((otherParticle) => {
@@ -100,10 +103,10 @@ export default function NeuralNetworkBackground() {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < connectionDistance) {
-                        const opacity = (1 - distance / connectionDistance) * 0.2;
+                        const opacity = (1 - distance / connectionDistance) * 0.4;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(26, 26, 26, ${opacity})`; // Matte Black lines
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(34, 211, 238, ${opacity})`; // Cyan lines
+                        ctx.lineWidth = 0.8;
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
                         ctx.stroke();
