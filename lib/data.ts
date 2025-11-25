@@ -2,9 +2,9 @@
 export const personalInfo = {
     name: "Anshul Chimnani",
     location: "Dublin, Ireland",
-    title: "Data Scientist & ML Engineer",
-    bio: "I&apos;m a data scientist and machine learning engineer specializing in turning complex datasets into actionable insights. My passion is building ML models that solve real-world problems while maintaining enterprise-grade security standards (ISO 27001).",
-    email: "anshul@example.com", // TODO: Update with your actual email
+    title: "Data Analyst & ML Engineer",
+    bio: "I am a data analyst and machine learning engineer specializing in turning complex datasets into actionable insights. My passion is building ML models that solve real-world problems while maintaining enterprise-grade security standards (ISO 27001).",
+    email: "anshulchimnani@gmail.com", // TODO: Update with your actual email
     linkedin: "https://www.linkedin.com/in/anshul-chimnani-2b8384134/",
     github: "https://github.com/Anshulchimnani",
 };

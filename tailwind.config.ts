@@ -18,12 +18,16 @@ const config: Config = {
         border: "#e5e5e5",
         "card-hover": "#fafafa",
         // Dark mode
-        "dark-background": "#0a0a0a",
+        "dark-background": "#0B1026", // Deep Space Blue
         "dark-foreground": "#fafafa",
         "dark-secondary": "#a3a3a3",
-        "dark-accent": "#60a5fa",
-        "dark-border": "#262626",
-        "dark-card-hover": "#171717",
+        "dark-accent": "#4facfe", // Electric Blue
+        "dark-border": "#1e293b",
+        "dark-card-hover": "#111827",
+        // Custom
+        "space-blue": "#0B1026",
+        "electric-blue": "#4facfe",
+        "cyan-glow": "#00f2fe",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

@@ -8,6 +8,7 @@ interface Particle {
     vx: number;
     vy: number;
     radius: number;
+    color: string;
 }
 
 export default function NeuralNetworkBackground() {
@@ -29,19 +30,26 @@ export default function NeuralNetworkBackground() {
         window.addEventListener("resize", resizeCanvas);
 
         // Particle settings
-        const particleCount = 80;
+        const particleCount = 100;
         const particles: Particle[] = [];
-        const connectionDistance = 150;
-        const mouse = { x: 0, y: 0, radius: 150 };
+        const connectionDistance = 180;
+        const mouse = { x: 0, y: 0, radius: 200 };
 
-        // Initialize particles
+        // Initialize particles - Bias towards the right side
         for (let i = 0; i < particleCount; i++) {
+            // 70% of particles on the right side, 30% scattered
+            const isRightSide = Math.random() > 0.3;
+            const x = isRightSide
+                ? (Math.random() * 0.6 + 0.4) * canvas.width // 40% to 100% width
+                : Math.random() * canvas.width;
+
             particles.push({
-                x: Math.random() * canvas.width,
+                x: x,
                 y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
                 radius: Math.random() * 2 + 1,
+                color: Math.random() > 0.5 ? "#4facfe" : "#00f2fe", // Electric Blue or Cyan Glow
             });
         }
 
@@ -58,8 +66,7 @@ export default function NeuralNetworkBackground() {
             const isDark = document.documentElement.classList.contains("dark");
 
             // Clear canvas
-            ctx.fillStyle = isDark ? "rgba(10, 10, 10, 0.1)" : "rgba(255, 255, 255, 0.1)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             // Update and draw particles
             particles.forEach((particle, i) => {
@@ -79,15 +86,18 @@ export default function NeuralNetworkBackground() {
                 if (distance < mouse.radius) {
                     const angle = Math.atan2(dy, dx);
                     const force = (mouse.radius - distance) / mouse.radius;
-                    particle.vx -= Math.cos(angle) * force * 0.2;
-                    particle.vy -= Math.sin(angle) * force * 0.2;
+                    particle.vx -= Math.cos(angle) * force * 0.5;
+                    particle.vy -= Math.sin(angle) * force * 0.5;
                 }
 
                 // Draw particle
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = isDark ? "rgba(96, 165, 250, 0.8)" : "rgba(59, 130, 246, 0.8)";
+                ctx.fillStyle = particle.color;
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = particle.color;
                 ctx.fill();
+                ctx.shadowBlur = 0;
 
                 // Draw connections
                 particles.slice(i + 1).forEach((otherParticle) => {
@@ -96,12 +106,10 @@ export default function NeuralNetworkBackground() {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < connectionDistance) {
-                        const opacity = (1 - distance / connectionDistance) * 0.5;
+                        const opacity = (1 - distance / connectionDistance) * 0.4;
                         ctx.beginPath();
-                        ctx.strokeStyle = isDark
-                            ? `rgba(96, 165, 250, ${opacity})`
-                            : `rgba(59, 130, 246, ${opacity})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(79, 172, 254, ${opacity})`; // Electric Blue lines
+                        ctx.lineWidth = 0.8;
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
                         ctx.stroke();
