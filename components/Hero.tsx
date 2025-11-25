@@ -39,34 +39,7 @@ export default function Hero() {
             Based in {personalInfo.location}
           </p>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-6">
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
-              aria-label="GitHub"
-            >
-              <FaGithub className="w-6 h-6 text-[#1a1a1a] transition-colors" />
-            </a>
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="w-6 h-6 text-[#1a1a1a] transition-colors" />
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6 text-[#1a1a1a] transition-colors" />
-            </a>
-          </div>
+
         </div>
 
         {/* Right Side: Empty for Animation */}
