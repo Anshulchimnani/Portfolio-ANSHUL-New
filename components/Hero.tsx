@@ -10,7 +10,7 @@ export default function Hero() {
         {/* Left Side: Content */}
         <div className="w-full md:w-1/2 flex flex-col items-start text-left z-10 pt-20 md:pt-0">
           {/* Profile Photo - Updated to Rectangle with 3D touch */}
-          <div className="mb-10 relative w-52 h-52 md:w-60 md:h-60 rounded-2xl overflow-hidden shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] transform hover:scale-105 transition-transform duration-500">
+          <div className="mb-10 relative w-44 h-44 md:w-48 md:h-48 rounded-2xl overflow-hidden shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] transform hover:scale-105 transition-transform duration-500">
             <Image
               src="/profile.jpg"
               alt={personalInfo.name}
