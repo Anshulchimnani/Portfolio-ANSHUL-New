@@ -10,20 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Light mode
-        background: "#FFFFFF",
-        foreground: "#1a1a1a",
-        secondary: "#666666",
-        accent: "#3b82f6",
-        border: "#e5e5e5",
-        "card-hover": "#fafafa",
-        // Dark mode
-        "dark-background": "#0B1026", // Deep Space Blue
-        "dark-foreground": "#fafafa",
-        "dark-secondary": "#a3a3a3",
-        "dark-accent": "#4facfe", // Electric Blue
-        "dark-border": "#1e293b",
-        "dark-card-hover": "#111827",
+        // Light mode (uses CSS variables)
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        secondary: "var(--secondary)",
+        accent: "var(--accent)",
+        border: "var(--border)",
+        "card-hover": "var(--card-hover)",
+        // Dark mode (uses CSS variables)
+        "dark-background": "var(--background)",
+        "dark-foreground": "var(--foreground)",
+        "dark-secondary": "var(--secondary)",
+        "dark-accent": "var(--accent)",
+        "dark-border": "var(--border)",
+        "dark-card-hover": "var(--card-hover)",
         // Custom
         "space-blue": "#0B1026",
         "electric-blue": "#4facfe",
