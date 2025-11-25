@@ -1,23 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0B1026;
+    /* Space Blue */
+    --foreground: #22d3ee;
+    /* Cyan-400 */
+    --secondary: #06b6d4;
+    /* Cyan-500 */
+    --accent: #00f2fe;
+    /* Cyan Glow */
+    --border: #1e293b;
+    --card-hover: #111827;
+  }
+
+  .dark {
+    --background: #0B1026;
+    --foreground: #22d3ee;
+    --secondary: #06b6d4;
+    --accent: #00f2fe;
+    --border: #1e293b;
+    --card-hover: #111827;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
     scroll-behavior: smooth;
-    }
+  }
 
-    body {
-      @apply bg-background text-foreground;
-      font-feature-settings: "rlig" 1, "calt" 1;
-    }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply font-semibold;
-    }
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+}
 
-    @layer utilities {
-      .text-balance {
-        text-wrap: balance;
-      }
-    }
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
