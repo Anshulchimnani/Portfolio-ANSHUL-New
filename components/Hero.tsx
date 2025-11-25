@@ -6,7 +6,7 @@ import { personalInfo } from "@/lib/data";
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="max-w-container mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start">
+      <div className="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center">
         {/* Left Side: Content */}
         <div className="w-full md:w-1/2 flex flex-col items-start text-left z-10 pt-20 md:pt-0">
           {/* Profile Photo */}
@@ -21,7 +21,7 @@ export default function Hero() {
           </div>
 
           {/* Name and Title */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-foreground dark:text-white tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white tracking-tight">
             {personalInfo.name}
           </h1>
           <h2 className="text-2xl md:text-3xl font-medium text-electric-blue mb-6">
@@ -29,12 +29,12 @@ export default function Hero() {
           </h2>
 
           {/* Bio */}
-          <p className="text-lg text-secondary dark:text-gray-300 max-w-xl mb-8 leading-relaxed">
+          <p className="text-lg text-gray-300 max-w-xl mb-8 leading-relaxed">
             {personalInfo.bio}
           </p>
 
           {/* Location */}
-          <p className="text-secondary dark:text-gray-400 mb-8 flex items-center gap-2">
+          <p className="text-gray-400 mb-8 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-electric-blue animate-pulse"></span>
             Based in {personalInfo.location}
           </p>
