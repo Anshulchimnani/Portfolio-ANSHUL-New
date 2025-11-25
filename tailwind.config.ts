@@ -41,6 +41,15 @@ const config: Config = {
       transitionDuration: {
         DEFAULT: "200ms",
       },
+      keyframes: {
+        flutter: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(5px)" },
+        },
+      },
+      animation: {
+        flutter: "flutter 3s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
