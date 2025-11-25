@@ -9,8 +9,8 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 w-full flex flex-col md:flex-row items-center">
         {/* Left Side: Content */}
         <div className="w-full md:w-1/2 flex flex-col items-start text-left z-10 pt-20 md:pt-0">
-          {/* Profile Photo */}
-          <div className="mb-8 relative w-32 h-32 rounded-full overflow-hidden border-4 border-electric-blue/30 shadow-[0_0_20px_rgba(79,172,254,0.3)]">
+          {/* Profile Photo - Updated to Rectangle with 3D touch */}
+          <div className="mb-10 relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] transform hover:scale-105 transition-transform duration-500">
             <Image
               src="/profile.jpg"
               alt={personalInfo.name}
@@ -21,21 +21,21 @@ export default function Hero() {
           </div>
 
           {/* Name and Title */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-white tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 text-[#1a1a1a] tracking-tight">
             {personalInfo.name}
           </h1>
-          <h2 className="text-2xl md:text-3xl font-medium text-electric-blue mb-6">
+          <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-6">
             {personalInfo.title}
           </h2>
 
           {/* Bio */}
-          <p className="text-lg text-gray-300 max-w-xl mb-8 leading-relaxed">
+          <p className="text-lg text-[#1a1a1a] max-w-xl mb-8 leading-relaxed font-medium">
             {personalInfo.bio}
           </p>
 
           {/* Location */}
-          <p className="text-gray-400 mb-8 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-electric-blue animate-pulse"></span>
+          <p className="text-gray-600 mb-8 flex items-center gap-2 font-medium">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
             Based in {personalInfo.location}
           </p>
 
@@ -45,26 +45,26 @@ export default function Hero() {
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all hover:scale-105 hover:border-electric-blue/50 group"
+              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
               aria-label="GitHub"
             >
-              <FaGithub className="w-6 h-6 text-gray-400 group-hover:text-electric-blue transition-colors" />
+              <FaGithub className="w-6 h-6 text-[#1a1a1a] transition-colors" />
             </a>
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all hover:scale-105 hover:border-electric-blue/50 group"
+              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="w-6 h-6 text-gray-400 group-hover:text-electric-blue transition-colors" />
+              <FaLinkedin className="w-6 h-6 text-[#1a1a1a] transition-colors" />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-all hover:scale-105 hover:border-electric-blue/50 group"
+              className="p-3 rounded-lg bg-gray-100 hover:bg-gray-200 border border-gray-200 transition-all hover:scale-105 group"
               aria-label="Email"
             >
-              <Mail className="w-6 h-6 text-gray-400 group-hover:text-electric-blue transition-colors" />
+              <Mail className="w-6 h-6 text-[#1a1a1a] transition-colors" />
             </a>
           </div>
         </div>

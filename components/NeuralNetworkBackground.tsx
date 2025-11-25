@@ -49,7 +49,7 @@ export default function NeuralNetworkBackground() {
                 vx: (Math.random() - 0.5) * 0.3,
                 vy: (Math.random() - 0.5) * 0.3,
                 radius: Math.random() * 2 + 1,
-                color: Math.random() > 0.5 ? "#4facfe" : "#00f2fe", // Electric Blue or Cyan Glow
+                color: Math.random() > 0.5 ? "#3b82f6" : "#1a1a1a", // Blue or Matte Black
             });
         }
 
@@ -62,9 +62,6 @@ export default function NeuralNetworkBackground() {
 
         // Animation loop
         const animate = () => {
-            // Get theme
-            const isDark = document.documentElement.classList.contains("dark");
-
             // Clear canvas
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -94,10 +91,7 @@ export default function NeuralNetworkBackground() {
                 ctx.beginPath();
                 ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
                 ctx.fillStyle = particle.color;
-                ctx.shadowBlur = 15;
-                ctx.shadowColor = particle.color;
                 ctx.fill();
-                ctx.shadowBlur = 0;
 
                 // Draw connections
                 particles.slice(i + 1).forEach((otherParticle) => {
@@ -106,10 +100,10 @@ export default function NeuralNetworkBackground() {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < connectionDistance) {
-                        const opacity = (1 - distance / connectionDistance) * 0.4;
+                        const opacity = (1 - distance / connectionDistance) * 0.2;
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(79, 172, 254, ${opacity})`; // Electric Blue lines
-                        ctx.lineWidth = 0.8;
+                        ctx.strokeStyle = `rgba(26, 26, 26, ${opacity})`; // Matte Black lines
+                        ctx.lineWidth = 0.5;
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
                         ctx.stroke();
